@@ -3,12 +3,13 @@ const { User } = require('../../models');
 
 // GET /api/users
 router.get('/', (req, res) => {
-    User.findAll()
+    /* User.findAll()
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    });
+    }); */
+    res.send("users route")
 });
 
 module.exports = router;

@@ -24,7 +24,7 @@ mysql -u root -p
 7. Create the database and use it
 ```
 source db/schema.sql
-USE alltrail_db;
+USE all_trails_db;
 ```
 8. Open a new terminal and start a new server
 ```
