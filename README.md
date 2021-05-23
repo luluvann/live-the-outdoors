@@ -32,6 +32,6 @@ npm start
 ```
 9. Open a new terminal and seed the tables data
 ```
-npm run seed
+npm run seeds
 ```
 10. Open a web browser and go to localhost:3002
