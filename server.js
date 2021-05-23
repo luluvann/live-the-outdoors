@@ -6,7 +6,7 @@ const exphbs = require("express-handlebars");
 
 // Express App setup
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 // Handlebars setup as default template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
