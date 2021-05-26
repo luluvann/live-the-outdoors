@@ -1,5 +1,32 @@
 # Project 2
 
+## User Story
+````
+AS an outdoor enthousiast,
+I WANT to be able to save favorite from all the trails available and track my completed trails
+
+When I go to the login page of the website
+Then I can log in or I can sign up to be a user of the app
+When I click on the signup button
+Then I brought to a signup form
+When I am in the signup form
+Then I can enter my username, email, password (not empty)
+When I click on enter signup
+Then I am brought to the dashboard page
+When I click on the login button
+Then I am brought to my trails dashboard
+When I am on the dashboard page
+Then I will see all the trails cards available in the world and also my favorite trails
+When I click on the + sign of a card in the All trails section
+Then the trail is added to my favorite trail section
+When I click on the - sign of a card in the favorite section
+Then the trail is removed from the favorite trail section
+When I click on the checkbox button at the right top corner of a trail card (of any section)
+Then the card the button is set as completed (the button becomes green)
+When I click on on trail card
+Then I am brought to a new page where I can see all the details about the trail
+````
+
 ## Installation
 1. Clone the repo 
 ```
