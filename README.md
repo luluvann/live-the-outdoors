@@ -40,7 +40,7 @@ git clone git@github.com:luluvann/project2.git
 4. Paste the following text in the .env file and make sure to replace the value in DB_PW and DB_USER with your own credentials. Keep the value of DB_NAME
 ```
 DB_PW='yourMySQLPassword'
-DB_NAME='alltrail_db'
+DB_NAME='all_trails_db'
 DB_USER='yourMySQLUsername'
 ```
 5. Install all the dependencies
