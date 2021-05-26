@@ -1,4 +1,7 @@
-# Project 2
+# Live The Outdoors
+
+## Design
+https://www.figma.com/file/dqil3qr9zbud5bgPtsQZAM/Front-end-Pages?node-id=0%3A1
 
 ## User Story
 ````
