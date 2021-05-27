@@ -1,4 +1,4 @@
-const { Model, DataTypes, UUIDV4 } = require("sequelize");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Trails extends Model {}
@@ -10,11 +10,11 @@ Trails.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: false,
-      defaultValue: UUIDV4,
+      defaultValue: Sequelize.UUIDV4,
     },
 
-    userId: {
-      type: DataTypes.UUID,
+    user_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "User",

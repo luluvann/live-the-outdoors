@@ -3,7 +3,7 @@ const Trails = require("./Trails");
 const User = require("./User");
 
 // Products belongsTo Category
-User.belongsToMany(Trails, {
+User.hasMany(Trails, {
   foreignKey: "user_id",
 });
 
