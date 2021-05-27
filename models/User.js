@@ -2,7 +2,6 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-
 class User extends Model {
   // set up method to run on instance data (per user) to check password
   checkPassword(loginPw) {
@@ -13,10 +12,11 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
+      defaultValue: DataTypes.UUIDV4,
     },
 
     username: {
@@ -46,6 +46,7 @@ User.init(
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
       async beforeCreate(newUserData) {
+        // let pwsalt = await bcrypt.genSaltSync(10);
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
@@ -69,7 +70,8 @@ User.init(
     // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
     underscored: true,
     // make it so our model name stays lowercase in the database
-    modelName: "user",
+    modelName: "User",
+    tableName: "users",
   }
 );
 

@@ -1,23 +1,23 @@
-const { Model, DataTypes, Sequelize } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Trails extends Model {}
+class Trail extends Model {}
 
-Trails.init(
+Trail.init(
   {
     id: {
       type: DataTypes.UUID,
       allowNull: false,
       primaryKey: true,
       autoIncrement: false,
-      defaultValue: Sequelize.UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
     },
 
     user_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: "User",
+        model: "users",
         key: "id",
       },
     },
@@ -28,7 +28,7 @@ Trails.init(
       unique: true,
     },
 
-    difficultyLevel: {
+    difficulty_level: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -73,8 +73,9 @@ Trails.init(
     // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
     underscored: true,
     // make it so our model name stays lowercase in the database
-    modelName: "trails",
+    modelName: "Trail",
+    tableName: "trails",
   }
 );
 
-module.exports = Trails;
+module.exports = Trail;

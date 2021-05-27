@@ -3,28 +3,25 @@ const express = require("express");
 const routes = require("./controllers");
 
 const exphbs = require("express-handlebars");
-<<<<<<< HEAD
 const path = require("path");
-=======
-const session = require('express-session');
->>>>>>> 693948d73714b745c884b19fa27f7224f09835b2
+const session = require("express-session");
 
 // Express App setup
 const app = express();
 const PORT = process.env.PORT || 3002;
 
 const sequelize = require("./config/connection");
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 //save session into the database
 const sess = {
-  secret: 'Super secret secret',
+  secret: "Super secret secret",
   cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
@@ -35,11 +32,8 @@ app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-<<<<<<< HEAD
 app.use(express.static("public"));
-=======
 /* app.use(express.static('public')) */
->>>>>>> 693948d73714b745c884b19fa27f7224f09835b2
 
 // turn on routes
 app.use(routes);

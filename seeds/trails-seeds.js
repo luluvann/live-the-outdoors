@@ -1,3 +1,4 @@
+const { Trail } = require("../models");
 const traildata = [
   {
     name: "Lake Agnes Trail",
@@ -74,3 +75,12 @@ const traildata = [
       "https://cdn-assets.alltrails.com/uploads/photo/image/20949974/extra_large_c31ffe2f5b9df810b8c872b4df7d1ed9.jpg",
   },
 ];
+
+const seedTrails = (id) => {
+  let newTrailData = traildata.map((trail) => {
+    return { ...trail, user_id: id };
+  });
+  return Trail.bulkCreate(newTrailData, { individualHooks: true });
+};
+
+module.exports = seedTrails;
