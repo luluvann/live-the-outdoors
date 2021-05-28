@@ -9,6 +9,7 @@ User.hasMany(Trail, {
 
 Trail.belongsTo(User, {
   foreignKey: "user_id",
+  as: "user",
 });
 
 module.exports = {

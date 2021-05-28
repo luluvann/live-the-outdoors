@@ -60,6 +60,15 @@ Trail.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+
+    fav_trail: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    completed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
