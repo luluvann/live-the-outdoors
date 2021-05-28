@@ -27,3 +27,12 @@ header {
     bottom:10px; 
     right:10px;
 }
+
+.home {
+  position: absolute;
+  width: 1285px;
+  height: 954px;
+  background: url(/public/assets/background-img-login.jpg);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}

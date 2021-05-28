@@ -1,15 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-class User extends Model {
-  // set up method to run on instance data (per user) to check password
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Trail extends Model {}
 
-User.init(
+Trail.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -19,46 +13,64 @@ User.init(
       defaultValue: DataTypes.UUIDV4,
     },
 
-    username: {
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      references: {
+        model: "users",
+        key: "id",
+      },
+    },
+
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
 
-    email: {
+    difficulty_level: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+    },
+
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    length: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
       validate: {
-        isEmail: true,
+        isDecimal: true,
       },
     },
 
-    password: {
+    elevation_gain: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+
+    est_time: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [4],
-      },
+    },
+
+    image_link: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    fav_trail: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    completed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   },
   {
-    hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newUserData) {
-        // let pwsalt = await bcrypt.genSaltSync(10);
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-
-      async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
-        return updatedUserData;
-      },
-    },
     // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
 
     // pass in our imported sequelize connection (the direct connection to our database)
@@ -70,9 +82,9 @@ User.init(
     // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
     underscored: true,
     // make it so our model name stays lowercase in the database
-    modelName: "User",
-    tableName: "users",
+    modelName: "Trail",
+    tableName: "trails",
   }
 );
 
-module.exports = User;
+module.exports = Trail;
