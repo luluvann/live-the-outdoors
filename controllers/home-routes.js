@@ -1,7 +1,41 @@
 const router = require("express").Router();
+const sequelize = require('../config/connection');
+const {Index, Trail, User} = require ('../models');
 
-router.get("/", (req, res) => {
-  res.render("homepage");
+router.get('/dashboard', (req,res) => {
+  Trail.findAll({
+    attributes: [
+      "id",
+      "user_id",
+      "name",
+      "difficulty_level",
+      "location",
+      "length",
+      "elevation_gain",
+      "est_time",
+      "image_link",
+      "fav_trail",
+      "completed",
+    ],
+    include: [
+      {
+        model: User,
+        as: "user",
+        attributes: ["id", "username"],
+      },
+    ],
+  })
+    .then((dbTrailsData) => {
+      const cards = dbTrailsData.map(card => card.get({plain : true}))
+      res.render('homepage', { cards });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+  
 });
+
+
 
 module.exports = router;
