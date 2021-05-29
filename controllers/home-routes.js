@@ -2,6 +2,7 @@ const router = require("express").Router();
 const sequelize = require('../config/connection');
 const {Index, Trail, User} = require ('../models');
 
+//get all the cards
 router.get('/dashboard', (req,res) => {
   Trail.findAll({
     attributes: [
@@ -37,5 +38,13 @@ router.get('/dashboard', (req,res) => {
 });
 
 
+// router.get('/login', (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   res.render('login');
+// });
 
 module.exports = router;

@@ -86,6 +86,7 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   Trail.findByPk(req.params.id)
     .then((trail) => {
+      console.log("trail", trail);
       if (!trail) {
         res.status(404).json({ message: "trail does not exist" });
         return;

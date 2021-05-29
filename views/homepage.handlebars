@@ -1,9 +1,10 @@
 <div class="bg-light">
-        <section class="hidden">
+        <section class = "hidden">
             <h2>My Favorite Trails</h2>
+          
             <div class="card-deck" id="favorite-trails">
               {{#each cards}}
-                {{#if completed}}
+                {{#if fav_trail}}
                   <div class="card" class={{id}}>                    
                           <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
                           <button class='complete-btn btn btn-success'>Complete</button>
@@ -42,4 +43,5 @@
           </section>
 </div>
 
-<script src="/javascript/homepage.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/javascripts/homepage.js"></script>
