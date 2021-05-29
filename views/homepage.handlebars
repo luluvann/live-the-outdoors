@@ -1,25 +1,29 @@
 <div class="bg-light">
         <section class="hidden">
             <h2>My Favorite Trails</h2>
-            <div class="card-deck">
-                <div class="card" id={{id}}>                    
-                        <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
-                        <button class='complete-btn btn btn-success'>Complete</button>
-                        <button class='remove-btn btn btn-danger'>Remove</button>
-                    
-                  <div class="card-body">
-                    <h5 class="card-title trail-name">{{name}}</h5>
-                    <p class="card-text place">{{location}}</p>
-                    <label for="" class="difficulty-level">{{difficulty_level}}</label>
-                    <p class="distance">Length : {{length}} </p>
+            <div class="card-deck" id="favorite-trails">
+              {{#each cards}}
+                {{#if completed}}
+                  <div class="card" class={{id}}>                    
+                          <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
+                          <button class='complete-btn btn btn-success'>Complete</button>
+                          <button class='remove-btn btn btn-danger' class = {{id}}>Remove</button>
+                      
+                    <div class="card-body">
+                      <h5 class="card-title trail-name">{{name}}</h5>
+                      <p class="card-text place">{{location}}</p>
+                      <label for="" class="difficulty-level">{{difficulty_level}}</label>
+                      <p class="distance">Length : {{length}} </p>
+                    </div>
                   </div>
-                </div>      
-              </div>
+                {{/if}}      
+              {{/each}}
+            </div>
         </section>
 
         <section>
             <h2>All Trails</h2>
-            <div class="card-deck">
+            <div class="card-deck" id="all-trails">
               {{#each cards}}
                 <div class="card" id={{id}}>                    
                         <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
@@ -37,3 +41,5 @@
             </div>
           </section>
 </div>
+
+<script src="/javascript/homepage.js"></script>
