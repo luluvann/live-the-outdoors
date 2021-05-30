@@ -5,8 +5,6 @@ $('section').on('click', '.complete-btn', completedTrail );
 $('section').on('click', '.incomplete-btn', incompleteTrail );
 
 
-
-
 //function to add trail card to the favorites section 
 async function addCardToFav () {
       
@@ -132,26 +130,26 @@ window.onload = (event) => {
 }
 
 
+//color code for the difficulty level      
+$('.difficulty-level').each(function (index) {
+    var difficultyLevel = $(this).text().trim();
+    console.log("level", difficultyLevel);
+    switch (difficultyLevel) {
+        case "easy" :
+            $(this).addClass("easy");
+            break;
+
+        case "moderate" :
+            $(this).addClass("moderate");
+            break;
         
-    $('.difficulty-level').each(function (index) {
-        var difficultyLevel = $(this).text().trim();
-        console.log("level", difficultyLevel);
-        switch (difficultyLevel) {
-            case "easy" :
-                $(this).addClass("easy");
-                break;
+        case "difficult" :
+            $(this).css("difficult");
+            break;
 
-            case "moderate" :
-                $(this).addClass("moderate");
-                break;
-            
-            case "difficult" :
-                $(this).css("difficult");
-                break;
+        default : 
+            console.log("Help");
 
-            default : 
-                console.log("Help");
-
-        }
-    });
+    }
+});
 
