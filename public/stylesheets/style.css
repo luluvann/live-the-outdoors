@@ -41,7 +41,7 @@ header {
     
 }
 
-label {
+.difficulty-level {
     color: white;
     text-align: center;
     border: none;
@@ -54,6 +54,38 @@ label {
 }
 
 
+.card
+{
+  box-shadow: 5px 5px 5px lightgray;  
+}
+
+section {
+    margin: 15px;
+}
+
+h2 {
+    margin: 5px;
+    padding: 6px;
+}
+
+.easy {
+    background-color : rgb(47, 149, 231);
+    color:white;
+}
+
+.moderate {
+    background-color :rgb(109, 92, 216);
+    color: white;
+}
+
+.difficult {
+    background-color : rgb(54, 52, 52);
+    color: white;
+}
+
+
+
+
 /* ==================================== welcome page css ================================================== */
 .home {
   position: absolute;
@@ -63,5 +95,4 @@ label {
   border: 1px solid #000000;
   box-sizing: border-box;
 }
-
 

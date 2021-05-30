@@ -2,7 +2,7 @@ const router = require("express").Router();
 const sequelize = require('../config/connection');
 const {Index, Trail, User} = require ('../models');
 
-//get all the cards
+//get all the cards and render to handlebar
 router.get('/dashboard', (req,res) => {
   Trail.findAll({
     attributes: [
