@@ -1,46 +1,65 @@
 <div class="bg-light">
-        <section class = "hidden">
-            <h2>My Favorite Trails</h2>
-          
-            <div class="card-deck" id="favorite-trails">
-              {{#each cards}}
-                {{#if fav_trail}}
-                  <div class="card" class={{id}}>                    
-                          <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
-                          <button class='complete-btn btn btn-success'>Complete</button>
-                          <button class='remove-btn btn btn-danger' class = {{id}}>Remove</button>
+  <section class = "hidden" id="fav-section">
+    <h2>My Favorite Trails</h2>
+    <div class="row row-cols-1 row-cols-md-3" id="favorite-trails">
+      {{!-- <div class="col mb-4"> --}}
+        {{!-- <div class="card-deck" id="favorite-trails"> --}}
+          {{#each cards}}
+            {{#if fav_trail}}
+              <div class="col mb-4" id="hello">
+              <div class="card h-100" id={{id}}>                    
+                <img class="trail-img img-thumbnail" src={{image_link}} alt="Shows the trails">
+                {{#if completed}}
+                <button class='incomplete-btn btn btn-danger'>Mark As Incomplete</button>                
+                {{else}}
+                <button class='complete-btn btn btn-success'>Mark As Complete</button>
+                {{/if}}
+                <button class='remove-btn btn btn-danger' class = {{id}}>Remove</button>
                       
-                    <div class="card-body">
-                      <h5 class="card-title trail-name">{{name}}</h5>
-                      <p class="card-text place">{{location}}</p>
-                      <label for="" class="difficulty-level">{{difficulty_level}}</label>
-                      <p class="distance">Length : {{length}} </p>
-                    </div>
-                  </div>
-                {{/if}}      
-              {{/each}}
-            </div>
-        </section>
+                <div class="card-body">
+                  <h5 class="card-title trail-name">{{name}}</h5>
+                  <p class="card-text place">{{location}}</p>
+                  <label class="difficulty-level">{{difficulty_level}}</label>
+                  <p class="distance">Length : {{length}} </p>
+                </div>
+              </div>
+              </div>
+            {{/if}}      
+          {{/each}}
+        {{!-- </div> --}}
+      {{!-- </div> --}}
+    </div>
+  </section>
 
-        <section>
-            <h2>All Trails</h2>
-            <div class="card-deck" id="all-trails">
-              {{#each cards}}
-                <div class="card" id={{id}}>                    
-                        <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
-                        <button class='complete-btn btn btn-success'>Complete</button>
-                        <button class='remove-btn btn btn-danger'>Add</button>
-                    
+  <section id="all-section">
+    <h2>All Trails</h2>
+      <div class="row row-cols-1 row-cols-md-3" id="all-trails">
+        {{!-- <div class="card-deck" id="all-trails"> --}}
+          {{#each cards}}
+            {{#unless fav_trail}}
+              <div class="col mb-4" id="hello-two">
+                <div class="card h-100" id={{id}}>                    
+                  <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
+                  {{#if completed}}
+                  <button class='incomplete-btn btn btn-danger'>Mark As Incomplete</button>
+                  {{else}}
+                  <button class='complete-btn btn btn-success'>Mark As Complete</button>
+                  {{/if}}
+                  <button class='add-btn btn btn-success'>Add to Favorites</button>
+                      
                   <div class="card-body">
-                    <h5 class="card-title trail-name">{{name}}</h5>
+                    <h3 class="card-title trail-name">{{name}}</h3>
                     <p class="card-text place">{{location}}</p>
-                    <label for="" class="difficulty-level">{{difficulty_level}}</label>
-                    <p class="distance">Length : {{length}} </p>
+                    <label class="difficulty">{{difficulty_level}}</label>
+                    <p class="distance">Length: {{length}}km </p>
                   </div>
                 </div>
-              {{/each}}                 
-            </div>
-          </section>
+              </div>
+            {{/unless}}
+          {{/each}}                 
+        {{!-- </div> --}}
+      </div>
+  </section>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

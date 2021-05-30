@@ -1,37 +1,19 @@
-//when creating the trail card dynamically add an automatic incrementing id to the parent node with class ="card"
+//event listeners
+$('#all-trails').on("click", '.add-btn', addCardToFav);
+$('#favorite-trails').on('click', '.remove-btn', removeCardFromFav);
+$('section').on('click', '.complete-btn', completedTrail );
+$('section').on('click', '.incomplete-btn', incompleteTrail );
 
 
-//remove the trail card from the  favorite trail section
 
 
-//$(".card-deck").on("click", ".remove-btn", removeCard);
-
-// function buttonClick() {
-//     var button = $('button');
-//     for (var i = 0; i < button.length; i++)
-//     {
-//         $
-//     }
-// }
- 
-
-$('.card-deck').on("click", '.btn-danger', addCard);
-
-// function addCard(event) {
-//     event.preventDefault();
-//     console.log("I am here");
-// }
-
-async function addCard () {
-    //event.preventDefault();
-    
+//function to add trail card to the favorites section 
+async function addCardToFav () {
+      
     var cardId = $(this).parent().attr('id');
-    var parentId = $(cardId).parent().attr('id');
-    $("section").removeClass('hidden');
-    console.log("card id", cardId);
-    console.log("parent id", parentId);
-
-   var apiRoute = `api/trail/${cardId}`
+    var apiRoute = `api/trail/${cardId}`
+    console.log("cardid", cardId);
+    // $("section").removeClass('hidden');
 
     const response = await fetch (apiRoute, {
         method : 'put',
@@ -40,7 +22,8 @@ async function addCard () {
         }),
         headers  :{'Content-Type' : 'application/json'}
     });
-    //console.log("response", response);
+    
+    location.reload();
     
     if (response.ok)
     {
@@ -52,30 +35,95 @@ async function addCard () {
     }
 }
  
- 
-//  async function removeCard (event) {
-//      event.preventDefault();
-//      var cardId = $(this).parent().attr('id');
-//      const completed = false;
+//function to remove the trai card from the favorite trails section
+async function removeCardFromFav () {
+     //event.preventDefault();
+     var cardId = $(this).parent().attr('id');
+     //console.log("card id", cardId)
+     var apiRoute = `api/trail/${cardId}`
 
-//      const response = await fetch ('/api/trail/:id', {
-//          method : 'put', 
-//          body : JSON.stringify({
-//              completed
-//          }), 
-//         headers: { 'Content-Type': 'application/json' }
-//      });
+     const response = await fetch (apiRoute, {
+         method : 'put', 
+         body : JSON.stringify({
+            fav_trail : false
+         }), 
+        headers: { 'Content-Type': 'application/json' }
+     });
 
-//      if (response.ok)
-//     {
-//         console.log("success");
-//     }
-//     else
-//     {
-//         alert(response.statusText);
-//     }
-//  }
+     location.reload();
 
-// window.addEventListener("load", function() {
-//     buttonClick();
-// });
+    if (response.ok)
+    {
+        console.log("success");
+    }
+    else
+    {
+        alert(response.statusText);
+    }
+ }
+
+ //function to update completion of the trail
+ async function completedTrail() {
+    var cardId = $(this).parent().attr('id');
+    console.log("card id", cardId);
+    var apiRoute = `/api/trail/${cardId}`
+
+    const response = await fetch (apiRoute, {
+        method : 'put', 
+        body : JSON.stringify({
+           completed : true
+        }), 
+       headers: { 'Content-Type': 'application/json' }
+    });
+
+    location.reload();
+    
+    if (response.ok)
+    {
+        console.log("success");
+    }
+    else
+    {
+        alert(response.statusText);
+    }
+ }
+
+ //function to update completion of the trail
+ async function incompleteTrail() {
+    var cardId = $(this).parent().attr('id');
+    //console.log("card id", cardId);
+    var apiRoute = `/api/trail/${cardId}`
+
+    const response = await fetch (apiRoute, {
+        method : 'put', 
+        body : JSON.stringify({
+           completed : false
+        }), 
+       headers: { 'Content-Type': 'application/json' }
+    });
+
+    location.reload();
+    
+    if (response.ok)
+    {
+        console.log("success");
+    }
+    else
+    {
+        alert(response.statusText);
+    }
+ }
+
+ //display the section only if it has cards 
+window.onload = (event) => {
+    if ($('#favorite-trails').children().length > 0)
+    {
+        $("#fav-section").removeClass('hidden');
+    }
+
+    if($('#all-trails').children().length <= 0)
+    {
+        $("#all-section").addClass('hidden');
+    }
+}
+

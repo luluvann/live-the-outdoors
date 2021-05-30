@@ -1,5 +1,5 @@
 
-/* ===================================  homepage css ========================================================*/
+/* ===================================  homepage/dashboard css ========================================================*/
 
 .hidden {
     display: none; 
@@ -16,18 +16,45 @@ header {
     border: none;
 }
 
-.complete-btn {
+.complete-btn,.incomplete-btn {
     position:absolute; 
     top:10px; 
     right:10px;
 }
 
-.remove-btn {
-    position:absolute; 
+
+
+.remove-btn, .add-btn {
+    position:absolute ; 
     bottom:10px; 
     right:10px;
 }
 
+.trail-img {
+    position: relative;
+    width: 500px;
+    height: 340px;
+    transition: 1s;
+}
+.trail-img:hover {
+    filter: brightness(75%);
+    
+}
+
+label {
+    color: white;
+    text-align: center;
+    border: none;
+    width: 7rem;
+    height: fit-content;
+    background-color: cornflowerblue;
+    padding: .375rem .75rem;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+/* ==================================== welcome page css ================================================== */
 .home {
   position: absolute;
   width: 1285px;
@@ -36,3 +63,5 @@ header {
   border: 1px solid #000000;
   box-sizing: border-box;
 }
+
+

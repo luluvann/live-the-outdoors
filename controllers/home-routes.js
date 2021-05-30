@@ -28,6 +28,7 @@ router.get('/dashboard', (req,res) => {
   })
     .then((dbTrailsData) => {
       const cards = dbTrailsData.map(card => card.get({plain : true}))
+      console.log("cards", cards)
       res.render('homepage', { cards });
     })
     .catch((err) => {

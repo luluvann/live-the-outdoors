@@ -91,6 +91,7 @@ router.put("/:id", (req, res) => {
         res.status(404).json({ message: "trail does not exist" });
         return;
       }
+      console.log("trail", req.body);
       return trail.update(req.body);
     })
     .then((updatedTrail) => {
