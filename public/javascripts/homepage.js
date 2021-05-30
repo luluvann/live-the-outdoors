@@ -7,7 +7,7 @@ $('section').on('click', '.incomplete-btn', incompleteTrail );
 
 //function to add trail card to the favorites section 
 async function addCardToFav () {
-      
+      event.preventDefault();
     var cardId = $(this).parent().attr('id');
     var apiRoute = `api/trail/${cardId}`
     //console.log("cardid", cardId);
@@ -35,7 +35,7 @@ async function addCardToFav () {
  
 //function to remove the trai card from the favorite trails section
 async function removeCardFromFav () {
-     //event.preventDefault();
+     event.preventDefault();
      var cardId = $(this).parent().attr('id');
      //console.log("card id", cardId)
      var apiRoute = `api/trail/${cardId}`
