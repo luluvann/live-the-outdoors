@@ -213,7 +213,7 @@ const traildata = [
     est_time: "2h",
     image_link:
       "https://cdn-assets.alltrails.com/uploads/photo/image/13773397/large_22aa79d62d97ad08a85a04b794affddc.jpg",
-  },
+  }
 ];
 
 const seedTrails = (id) => {
