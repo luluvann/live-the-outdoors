@@ -10,17 +10,18 @@
               <div class="card h-100" id={{id}}>                    
                 <img class="trail-img img-thumbnail" src={{image_link}} alt="Shows the trails">
                 {{#if completed}}
-                <button class='incomplete-btn btn btn-danger'>Mark As Incomplete</button>                
+                <button class='incomplete-btn btn btn-danger'>Not Completed</button>                
                 {{else}}
-                <button class='complete-btn btn btn-success'>Mark As Complete</button>
+                <button class='complete-btn btn btn-success'>Completed</button>
                 {{/if}}
-                <button class='remove-btn btn btn-danger' class = {{id}}>Remove</button>
+                {{!-- <button class='remove-btn btn btn-danger' class = {{id}}>Remove</button> --}}
+                <i class="fas fa-heart remove-btn fa-2x" class = {{id}}></i>
                       
                 <div class="card-body">
                   <h5 class="card-title trail-name">{{name}}</h5>
                   <p class="card-text place">{{location}}</p>
                   <label class="difficulty-level">{{difficulty_level}}</label>
-                  <p class="distance">Length : {{length}} </p>
+                  <p class="distance">Length : {{length}}km </p>
                 </div>
               </div>
               </div>
@@ -41,11 +42,11 @@
                 <div class="card h-100" id={{id}}>                    
                   <img class="trail-img img-thumbnail" src={{image_link}} alt="Card image cap">
                   {{#if completed}}
-                  <button class='incomplete-btn btn btn-danger'>Mark As Incomplete</button>
+                  <button class='incomplete-btn btn btn-danger'>Not Completed</button>
                   {{else}}
-                  <button class='complete-btn btn btn-success'>Mark As Complete</button>
+                  <button class='complete-btn btn btn-success'>Completed</button>
                   {{/if}}
-                  <button class='add-btn btn btn-success'>Add to Favorites</button>
+                  <i class="far fa-heart add-btn fa-2x" class = {{id}}></i>
                       
                   <div class="card-body">
                     <h3 class="card-title trail-name">{{name}}</h3>
@@ -63,4 +64,4 @@
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="/javascripts/homepage.js"></script>
+<script src="/javascripts/dashboard.js"></script>

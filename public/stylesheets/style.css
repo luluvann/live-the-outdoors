@@ -26,9 +26,29 @@ header {
 
 .remove-btn, .add-btn {
     position:absolute ; 
-    bottom:10px; 
-    right:10px;
+    bottom:20px; 
+    right:20px;
 }
+
+.add-btn {
+    color: lightgray;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    font-size: 2.2rem;
+}
+
+.remove-btn {
+    color : red;
+    transition: 0.3s;
+
+}
+.remove-btn:hover {
+    /* filter : brightness(90%); */
+    font-size: 2.2rem;
+}
+
 
 .trail-img {
     position: relative;
@@ -37,8 +57,7 @@ header {
     transition: 1s;
 }
 .trail-img:hover {
-    filter: brightness(75%);
-    
+    filter: brightness(75%);    
 }
 
 .difficulty-level {
@@ -83,7 +102,7 @@ h2 {
     color: white;
 }
 
-button, .trail-img {
+button, .remove-btn, .add-btn, .trail-img {
     cursor: pointer;
 }
 
