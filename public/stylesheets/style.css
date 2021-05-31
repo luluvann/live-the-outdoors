@@ -1,5 +1,5 @@
 
-/* ===================================  homepage/dashboard css ========================================================*/
+/* ===================================  dashboard css ========================================================*/
 
 .hidden {
     display: none; 
@@ -64,7 +64,7 @@ header {
     color: white;
     text-align: center;
     border: none;
-    width: 7rem;
+    width: fit-content;
     height: fit-content;
     background-color: cornflowerblue;
     padding: .375rem .75rem;
@@ -116,3 +116,73 @@ button, .remove-btn, .add-btn, .trail-img {
   box-sizing: border-box;
 }
 
+/* =================================== trail page css ==================================================== */
+#card-holder {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 2rem 0 10rem 0;
+}
+
+#main-card {
+    width : 50rem;
+}
+
+#btn-holder {
+    margin: 40px;
+}
+
+#go-back-btn {
+    margin : 40px 40px 0 20px;
+    padding : 15px;
+}
+
+.main-card-img{
+    width : 50rem;
+    height: 30rem;
+}
+
+.card-img-overlay{
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    flex-direction: column;
+    right: 1px;
+    left: 1px;
+    width : 50rem;
+    height: 30rem;
+}
+
+#level {
+    padding: 6px;
+    margin: 5px;
+}
+
+#place {
+    padding: 6px;
+    margin: 5px;
+}
+
+#map-btn-div {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+#trail-description-div {
+    margin: 5px;
+}
+
+.card-footer {
+    background-color: darkslategray;
+}
+
+#trail-other-info {
+    
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.detail-div {
+    text-align: center;
+}

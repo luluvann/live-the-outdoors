@@ -3,6 +3,7 @@ $('#all-trails').on("click", '.add-btn', addCardToFav);
 $('#favorite-trails').on('click', '.remove-btn', removeCardFromFav);
 $('section').on('click', '.complete-btn', completedTrail );
 $('section').on('click', '.incomplete-btn', incompleteTrail );
+$('section').on('click', '.trail-img', navigateToTrailId);
 
 
 //function to add trail card to the favorites section 
@@ -125,10 +126,16 @@ window.onload = (event) => {
         $("#all-section").addClass('hidden');
     }
 
-    //difficultyLevelColor();
 
 }
 
+//function to navigate to individual trails
+function navigateToTrailId() {
+    var trailId = $(this).parent().attr('id');
+    console.log('treailId', trailId);
+    var url = `/trail/${trailId}`;
+    window.open(url);
+}
 
 //color code for the difficulty level      
 $('.difficulty-level').each(function (index) {
@@ -144,12 +151,13 @@ $('.difficulty-level').each(function (index) {
             break;
         
         case "difficult" :
-            $(this).css("difficult");
+            $(this).addClass("difficult");
             break;
 
         default : 
-            console.log("Help");
+            $(this).css('bacckground-color', "gray")
 
     }
 });
+
 

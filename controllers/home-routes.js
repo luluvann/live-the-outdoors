@@ -28,15 +28,18 @@ router.get('/dashboard', (req,res) => {
   })
     .then((dbTrailsData) => {
       const cards = dbTrailsData.map(card => card.get({plain : true}))
-      console.log("cards", cards)
+      // console.log("cards", cards)
       res.render('dashboard', { cards });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
-  
 });
+
+router.get('/trail/:id', (req, res) => {
+  res.render('trail')
+})
 
 
 // router.get('/login', (req, res) => {

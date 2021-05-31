@@ -1,0 +1,65 @@
+<section>
+    <div id="btn-holder">
+        <button type="button" class="btn btn-dark" id="go-back-btn">Go Back To Dashboard</button>
+    </div>
+    <div id="card-holder">
+    <div class="card bg-dark text-white" id="main-card">
+        <img class="card-img main-card-img" src="/assets/background-img-login.jpg" alt="Card image">
+        <div class="card-img-overlay">
+            <h2 class="card-title">Name of the Trail {{name}}</h5>
+            <h4 class="card-text" id="place">Place {{location}}</h4>
+            <p class="difficulty-level" id="level">difficulty level{{difficulty_level}} </p>
+        </div>
+        <div class="card-footer trail-info ">
+            <div id="map-btn-div">
+                <i class="far fa-3x fa-spin fa-compass"></i>
+            </div>
+            <div id="trail-description-div">
+                <p class="card-text">{{description}} Long Description of the trail. Nice walking trail.....Montreal Highlights Walking Tour is a 20.1 kilometer out and back trail located near Montréal, Quebec, Canada. The trail is good for all skill levels and is primarily used for hiking and walking. Dogs are also able to use this trail but must be kept on leash.</p>
+            </div>
+            <div id="trail-other-info">
+                <div class="detail-div">
+                    <p class="card-text">Trail Length</p>
+                    <p class="card-text">10km{{length}}</p>
+                </div>
+                <div class="detail-div">
+                    <p class="card-text">Elevation Gain</p>
+                    <p class="card-text">608{{elevation_gain}}</p>
+                </div>
+                <div class="detail-div">
+                    <p class="card-text">Estimate Time</p>
+                    <p class="card-text">1h 26m{{est_time}}</p>
+                </div>            
+
+            </div>
+        </div>
+        <div>
+        </div>
+    
+
+
+    </div>
+    </div>
+</section>
+
+
+
+
+{{!-- <section>
+    <div class="container">
+        <div class="row" id="top-button">
+            <button type="button" class="btn btn-light">Light</button>
+        </div>
+    </div>
+    <div class="container">
+        <div id="trail-img-section">
+            <h5 class="trail-name">Name of the trail{{name}}</h5>
+            <label class="difficulty-level">Difficulty Level{{difficulty_level}}</label>
+            <p class="place">Location {{location}}</p>
+        </div>
+    </div>
+
+    </div>
+    
+    
+</section> --}}
