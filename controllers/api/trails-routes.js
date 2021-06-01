@@ -36,8 +36,10 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Trail.findByPk(req.params.id, {
-    attributes: [
+  Trail.findOne({
+    where: {
+      id: req.params.id
+    }, attributes: [
       "id",
       "user_id",
       "name",

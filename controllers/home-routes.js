@@ -27,8 +27,8 @@ router.get('/dashboard', (req,res) => {
     ],
   })
     .then((dbTrailsData) => {
-      const cards = dbTrailsData.map(card => card.get({plain : true}))
-      console.log("cards", cards)
+      const cards = dbTrailsData.map(card => card.get({plain : true}));
+      //console.log("cards", cards)
       res.render('dashboard', { cards });
     })
     .catch((err) => {
@@ -46,6 +46,43 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   res.render('signup');
+});
+
+router.get("/trail/:id", (req, res) => {
+  Trail.findOne({
+    where: {
+      id: req.params.id
+    }, attributes: [
+      "id",
+      "user_id",
+      "name",
+      "difficulty_level",
+      "location",
+      "length",
+      "elevation_gain",
+      "est_time",
+      "image_link",
+      "fav_trail",
+      "completed",
+    ],
+    include: [
+      {
+        model: User,
+        as: "user",
+        attributes: ["id", "username"],
+      },
+    ],
+  })
+  .then((dbTrailsData) => {
+    //console.log("trail", dbTrailsData);
+    const card = dbTrailsData.get({plain : true});
+    console.log("card", card)
+    res.render('trail', { card });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 });
 
 
