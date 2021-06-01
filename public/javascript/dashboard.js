@@ -9,8 +9,8 @@ $('section').on('click', '.incomplete-btn', incompleteTrail );
 async function addCardToFav () {
       //event.preventDefault();
     var cardId = $(this).parent().attr('id');
-    var apiRoute = `api/trail/${cardId}`
-    //console.log("cardid", cardId);
+    var apiRoute = `/api/trail/${cardId}`
+    console.log("cardid", cardId);
     // $("section").removeClass('hidden');
 
     const response = await fetch (apiRoute, {
@@ -38,7 +38,7 @@ async function removeCardFromFav () {
      //event.preventDefault();
      var cardId = $(this).parent().attr('id');
      //console.log("card id", cardId)
-     var apiRoute = `api/trail/${cardId}`
+     var apiRoute = `/api/trail/${cardId}`
 
      const response = await fetch (apiRoute, {
          method : 'put', 
