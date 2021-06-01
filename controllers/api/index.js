@@ -1,9 +1,9 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
-const userRoutes = require("./user-routes.js");
-const trailsRoutes = require("./trails-routes");
+const userRoutes = require('./user-routes.js');
+const trailRoutes = require('./trails-routes');
 
-router.use("/users", userRoutes);
-router.use("/trails", trailsRoutes);
+router.use('/users', userRoutes);
+router.use('/trail', traiRoutes);
 
 module.exports = router;

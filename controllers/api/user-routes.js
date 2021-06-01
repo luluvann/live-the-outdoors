@@ -40,23 +40,14 @@ router.post('/', (req, res) => {
     email: req.body.email,
     password: req.body.password
   })
-  //Gives the server easy access to the user's id and username - boolean describing whether or not the user is logged in
-  .then(dbUserData => {
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-
-      res.json(dbUserData);
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
 });
 
-// The login route to check user's identity found at http://localhost:3002/api
+// The login route to check user's identity found at http://localhost:3002/api/users/login
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
@@ -76,13 +67,7 @@ router.post('/login', (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-  
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
-    });
+    res.json({ user: dbUserData, message: 'You are now logged in!' });
   });
 });
 

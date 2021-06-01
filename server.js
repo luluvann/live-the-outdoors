@@ -6,6 +6,9 @@ const routes = require("./controllers");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 
+//remove if error
+const hbs = exphbs.create({});
+
 // Express App setup
 const app = express();
 const PORT = process.env.PORT || 3002
