@@ -310,3 +310,11 @@ form button{
 .detail-div {
     text-align: center;
 }
+
+#map-link {
+  text-decoration: none;
+}
+
+.fa-compass {
+  color: white;
+}

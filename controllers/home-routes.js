@@ -29,7 +29,7 @@ router.get('/dashboard', (req,res) => {
     .then((dbTrailsData) => {
       const cards = dbTrailsData.map(card => card.get({plain : true}));
       //console.log("cards", cards)
-      res.render('dashboard', { cards });
+      res.render('dashboard', { cards, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -49,6 +49,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.get("/trail/:id", (req, res) => {
+  console.log("request", req.params.id);
   Trail.findOne({
     where: {
       id: req.params.id
@@ -74,10 +75,14 @@ router.get("/trail/:id", (req, res) => {
     ],
   })
   .then((dbTrailsData) => {
+    if (!dbTrailsData) {
+      res.status(404).json({ message: 'No post found with this id' });
+      return;
+    }
     //console.log("trail", dbTrailsData);
     const card = dbTrailsData.get({plain : true});
     console.log("card", card)
-    res.render('trail', { card });
+    res.render('trail', { card, loggedIn: req.session.loggedIn} );
   })
   .catch((err) => {
     console.log(err);
