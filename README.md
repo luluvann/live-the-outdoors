@@ -1,34 +1,56 @@
 # Live The Outdoors
+An app to choose and save my favorite trails and completed trails
 
-## Design
+## Figma Design
 https://www.figma.com/file/dqil3qr9zbud5bgPtsQZAM/Front-end-Pages?node-id=0%3A1
+
+## Deployed App
+
 
 ## User Story
 ````
-AS an outdoor enthousiast,
-I WANT to be able to save favorite from all the trails available and track my completed trails
+AS an outdoor enthusiast,
+I WANT to be able to save my favorite trails and track my completed trails
 
-When I go to the login page of the website
-Then I can log in or I can sign up to be a user of the app
-When I click on the signup button
-Then I brought to a signup form
-When I am in the signup form
-Then I can enter my username, email, password (not empty)
-When I click on enter signup
-Then I am brought to the dashboard page
-When I click on the login button
-Then I am brought to my trails dashboard
-When I am on the dashboard page
-Then I will see all the trails cards available in the world and also my favorite trails
-When I click on the + sign of a card in the All trails section
-Then the trail is added to my favorite trail section
-When I click on the - sign of a card in the favorite section
-Then the trail is removed from the favorite trail section
-When I click on the checkbox button at the right top corner of a trail card (of any section)
-Then the card the button is set as completed (the button becomes green)
-When I click on on trail card
-Then I am brought to a new page where I can see all the details about the trail
+WHEN I arrive to the homepage of the website
+THEN I can choose to login or sign up by clicking on either login or sign up button
+WHEN I go to the sign up page
+THEN I can sign up through a form asking for my username, email and password
+WHEN I go to the login page
+THEN I can log in through a form asking for my email and password
+WHEN I click on the submit form button in the login or sign up forms
+THEN I am redirected to the dashboard page
+WHEN I am on the dashboard page
+THEN I will see the "All Trails" section and the "My Favorite Trails" section which contains trails cards
+WHEN I click on the heart icon of a card in the "All trails" section
+THEN the trail is added to "My Favorite Trails" section
+WHEN I click on the heart icon sign of a card in the "My Favorite Trails" section
+THEN the trail is removed from the "My Favorite Trails" section
+WHEN I click on the toggle button at the right top corner of a trail card (of any section)
+THEN the card the button is set as "Completed" or "Not Completed"
+WHEN I click on a trail card
+THEN I am redirected to a page where I can see more details about the trail selected
 ````
+
+## Technologies used
+Front-End
+- JavaScript / JQuery
+- CSS / Bootstrap
+- Font Awesome
+
+Back-End
+- Node.js
+- Express.js
+- Sequelize ORM / MySQL
+- Connect-session-sequelize
+- Bcrypt
+- Express Session
+
+Util
+- Nodemon
+- Github Kanban
+- Heroku
+- Visual Studio Code
 
 ## Installation
 1. Clone the repo 
@@ -65,3 +87,9 @@ npm start
 npm run seeds
 ```
 10. Open a web browser and go to localhost:3002
+
+## Developers
+- Khadra M
+- Deepika B
+- Billie H
+- Lucile T
