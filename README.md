@@ -30,6 +30,10 @@ WHEN I click on the toggle button at the right top corner of a trail card (of an
 THEN the card the button is set as "Completed" or "Not Completed"
 WHEN I click on a trail card
 THEN I am redirected to a page where I can see more details about the trail selected
+WHEN I am in the Dashboard or the Trail Page
+THEN I can choose to logout by clicking on the logout button in the header
+WHEN I click logout
+THEN I am redirected to the app homepage
 ````
 
 ## Technologies used
