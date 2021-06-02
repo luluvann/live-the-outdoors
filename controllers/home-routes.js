@@ -48,7 +48,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get("/trail/:id", (req, res) => {
+router.get('/trail/:id', (req, res) => {
   console.log("request", req.params.id);
   Trail.findOne({
     where: {
@@ -65,6 +65,8 @@ router.get("/trail/:id", (req, res) => {
       "image_link",
       "fav_trail",
       "completed",
+      "description",
+      "directions"
     ],
     include: [
       {
@@ -75,17 +77,19 @@ router.get("/trail/:id", (req, res) => {
     ],
   })
   .then((dbTrailsData) => {
-    if (!dbTrailsData) {
+   /*  if (!dbTrailsData) {
       res.status(404).json({ message: 'No post found with this id' });
       return;
-    }
-    //console.log("trail", dbTrailsData);
+    } */
     const card = dbTrailsData.get({plain : true});
-    console.log("card", card)
-    res.render('trail', { card, loggedIn: req.session.loggedIn} );
+    console.log(card)
+/*  res.send(card) */
+
+ res.render('trail', { card } ); 
+   
   })
   .catch((err) => {
-    console.log(err);
+    /* console.log(err); */
     res.status(500).json(err);
   })
 });
