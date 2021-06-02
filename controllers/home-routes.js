@@ -85,7 +85,7 @@ router.get('/trail/:id', (req, res) => {
     console.log(card)
 /*  res.send(card) */
 
- res.render('trail', { card } ); 
+ res.render('trail', { card, loggedIn: req.session.loggedIn } ); 
    
   })
   .catch((err) => {
