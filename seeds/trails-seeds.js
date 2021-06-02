@@ -1,6 +1,34 @@
 const { Trail } = require("../models");
 const traildata = [
   {
+    name: "Storm Haven to Overhanging Point Loop",
+    difficulty_level: "moderate",
+    location: "Bruce Peninsula National Park",
+    directions:
+      "https://www.google.com/maps/dir/Current+Location/45.23684,-81.52299?ref=trail-action-menu-directions",
+    description:
+      "This is the best hike for the outdoor lovers visiting Bruce Peninsula National Park. Hiking along the cliffs and shoreline into The Limestone rich clear waters of Georgian Bay, this route takes users from the main Cypress Lake Trailhead, onto the double wide well maintained Horse Lake Trail. Here, users walk past Horse Lake and through the woods until reaching the shoreline of Georgian Bay. The trail continues to the right and follows the Main Bruce Trail to Storm Haven Campground. This path is through the woods with minor elevation changes, and a few unique view opportunities of the rugged shoreline. From this point the trail heads down to the shoreline and follows it to the Caves. This section is not marked, risky and dangerous. If users struggle over a few sections, they should stop and turn around. After visiting the caves, the route makes a scenic journey to Overhanging Point with a million photo opportunities, bouldering, and sun absorbing stops. The trail then uses the return portion to the Marr Lake Trail. This entire hike is relatively easy, minus - the cave section.",
+    length: 9.8,
+    elevation_gain: 277,
+    est_time: "1h52",
+    image_link:
+      "https://cdn-assets.alltrails.com/uploads/photo/image/13668156/extra_large_1c1d4a5835a06244cf10857270b91486.jpg",
+  },
+  {
+    name: "The Riverain and the Rapids",
+    difficulty_level: "moderate",
+    location: "Hautes-Gorges-de-la-Rivière-Malbaie",
+    directions:
+      "https://www.google.com/maps/dir/Current+Location/47.89157,-70.47633?ref=trail-action-menu-directions",
+    description:
+      "The Riverain and the Rapids is a 16.3 kilometer moderately trafficked loop trail located near Mont-Élie, Quebec, Canada that features a river and is rated as moderate. The trail is primarily used for hiking and walking.",
+    length: 16.3,
+    elevation_gain: 358,
+    est_time: "1h52",
+    image_link:
+      "https://cdn-assets.alltrails.com/uploads/photo/image/19633305/large_a36e4143aaec10393188d0d5f363c2ef.jpg",
+  },
+  {
     name: "Lake Agnes Trail",
     difficulty_level: "moderate",
     location: "Banff National Park",
@@ -57,7 +85,7 @@ const traildata = [
     elevation_gain: 235,
     est_time: "1h44",
     image_link:
-      "https://cdn-assets.alltrails.com/uploads/photo/image/20454759/extra_large_db38614f1c4511a33cc1ce771f0b36e7.jpg",
+      "https://cdn-assets.alltrails.com/uploads/photo/image/28321912/large_0d32736e8e304b6504d18644d5c1d6fe.jpg",
   },
 
   {
@@ -114,7 +142,7 @@ const traildata = [
     elevation_gain: 613,
     est_time: "4h8m",
     image_link:
-      "https://cdn-assets.alltrails.com/uploads/photo/image/11914242/large_2c66c665961a597373f4755d4b90d6e8.jpg",
+      "https://cdn-assets.alltrails.com/uploads/photo/image/11914242/extra_large_2c66c665961a597373f4755d4b90d6e8.jpg",
   },
   {
     name: "Mont Chauve Trail",
@@ -170,7 +198,7 @@ const traildata = [
     elevation_gain: 776,
     est_time: "3h45m",
     image_link:
-      "https://cdn-assets.alltrails.com/uploads/photo/image/28700106/large_58e87e40f4579a8c905b13cb7ac693fa.jpg",
+      "https://cdn-assets.alltrails.com/uploads/photo/image/28700106/extra_large_58e87e40f4579a8c905b13cb7ac693fa.jpg",
   },
   {
     name: "Parker Ridge Trail",
@@ -184,7 +212,7 @@ const traildata = [
     elevation_gain: 269,
     est_time: "1h53",
     image_link:
-      "https://cdn-assets.alltrails.com/uploads/photo/image/28700106/large_58e87e40f4579a8c905b13cb7ac693fa.jpg",
+      "https://cdn-assets.alltrails.com/uploads/photo/image/28527379/large_8c90f1dcedc9d7eeb3cd4f4d590ee873.jpg",
   },
   {
     name: "Mount Reine-Malouin",
