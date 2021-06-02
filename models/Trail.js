@@ -69,6 +69,12 @@ Trail.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    description: {
+      type: DataTypes.STRING(5000)
+    },
+    directions: {
+      type: DataTypes.STRING(5000)
+    }
   },
   {
     // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))

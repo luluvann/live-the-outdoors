@@ -27,9 +27,9 @@ router.get('/dashboard', (req,res) => {
     ],
   })
     .then((dbTrailsData) => {
-      const cards = dbTrailsData.map(card => card.get({plain : true}))
-      console.log("cards", cards)
-      res.render('dashboard', { cards });
+      const cards = dbTrailsData.map(card => card.get({plain : true}));
+      //console.log("cards", cards)
+      res.render('dashboard', { cards, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -46,6 +46,52 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   res.render('signup');
+});
+
+router.get('/trail/:id', (req, res) => {
+  console.log("request", req.params.id);
+  Trail.findOne({
+    where: {
+      id: req.params.id
+    }, attributes: [
+      "id",
+      "user_id",
+      "name",
+      "difficulty_level",
+      "location",
+      "length",
+      "elevation_gain",
+      "est_time",
+      "image_link",
+      "fav_trail",
+      "completed",
+      "description",
+      "directions"
+    ],
+    include: [
+      {
+        model: User,
+        as: "user",
+        attributes: ["id", "username"],
+      },
+    ],
+  })
+  .then((dbTrailsData) => {
+   /*  if (!dbTrailsData) {
+      res.status(404).json({ message: 'No post found with this id' });
+      return;
+    } */
+    const card = dbTrailsData.get({plain : true});
+    console.log(card)
+/*  res.send(card) */
+
+ res.render('trail', { card } ); 
+   
+  })
+  .catch((err) => {
+    /* console.log(err); */
+    res.status(500).json(err);
+  })
 });
 
 

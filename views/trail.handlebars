@@ -1,0 +1,40 @@
+<section>
+    <div id="btn-holder">
+        <button type="button" class="btn btn-dark" id="go-back-btn">Go Back To Dashboard</button>
+    </div>
+    <div id="card-holder">
+        <div class="card bg-dark text-white" id="main-card">
+            <img class="card-img main-card-img" src={{card.image_link}}  alt="Card image">
+            <div class="card-img-overlay">
+                <h2 class="card-title">{{card.name}}</h5>
+                    <h4 class="card-text" id="place">{{card.location}}</h4>
+                    <p class="difficulty-level" id="level">{{card.difficulty_level}}</p>
+            </div>
+            <div class="card-footer trail-info ">
+                <div id="map-btn-div">
+                    <a href={{card.directions}} target="_blank" id="map-link"><i class="far fa-3x fa-spin fa-compass"></i></a>                    
+                </div>
+                <div id="trail-description-div">
+                    <p class="card-text">{{card.description}}</p>
+                </div>
+                <div id="trail-other-info">
+                    <div class="detail-div">
+                        <p class="card-text">Trail Length</p>
+                        <p class="card-text">{{card.length}} km</p>
+                    </div>
+                    <div class="detail-div">
+                        <p class="card-text">Elevation Gain</p>
+                        <p class="card-text">{{card.elevation_gain}} m</p>
+                    </div>
+                    <div class="detail-div">
+                        <p class="card-text">Estimate Time</p>
+                        <p class="card-text">{{card.est_time}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/javascript/trailpage.js"></script>
