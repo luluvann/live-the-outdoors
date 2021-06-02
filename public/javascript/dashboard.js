@@ -161,5 +161,5 @@ function navigateToTrailId() {
     var trailId = $(this).parent().attr('id');
     console.log('treailId', trailId);
     var url = `/trail/${trailId}`;
-    window.open(url);
+    window.location.replace(url);
 }
