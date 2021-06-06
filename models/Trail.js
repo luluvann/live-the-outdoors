@@ -13,15 +13,6 @@ Trail.init(
       defaultValue: DataTypes.UUIDV4,
     },
 
-    user_id: {
-      type: DataTypes.UUID,
-      allowNull: false,
-      references: {
-        model: "users",
-        key: "id",
-      },
-    },
-
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -70,11 +61,11 @@ Trail.init(
       defaultValue: false,
     },
     description: {
-      type: DataTypes.STRING(5000)
+      type: DataTypes.STRING(5000),
     },
     directions: {
-      type: DataTypes.STRING(5000)
-    }
+      type: DataTypes.STRING(5000),
+    },
   },
   {
     // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))

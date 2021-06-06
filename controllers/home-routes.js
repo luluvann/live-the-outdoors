@@ -1,10 +1,14 @@
 const router = require("express").Router();
-const sequelize = require('../config/connection');
-const {Index, Trail, User} = require ('../models');
+const sequelize = require("../config/connection");
+const { Index, Trail, User } = require("../models");
 
 //get all the cards and render to handlebar
-router.get('/dashboard', (req,res) => {
+router.get("/dashboard", (req, res) => {
+  console.log("req.session", req.session);
   Trail.findAll({
+    // where: {
+    //   user_id: req.session.user_id,
+    // },
     attributes: [
       "id",
       "user_id",
@@ -27,33 +31,35 @@ router.get('/dashboard', (req,res) => {
     ],
   })
     .then((dbTrailsData) => {
-      const cards = dbTrailsData.map(card => card.get({plain : true}));
+      console.log(dbTrailsData);
+      const cards = dbTrailsData.map((card) => card.get({ plain: true }));
       //console.log("cards", cards)
-      res.render('dashboard', { cards, loggedIn: req.session.loggedIn });
+      res.render("dashboard", { cards, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    })
+    });
 });
-router.get('/', (req,res)=>{
-    res.render('homepage')
-});
-
-router.get('/login', (req, res) => {
-    res.render('login');
+router.get("/", (req, res) => {
+  res.render("homepage");
 });
 
-router.get('/signup', (req, res) => {
-  res.render('signup');
+router.get("/login", (req, res) => {
+  res.render("login");
 });
 
-router.get('/trail/:id', (req, res) => {
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+router.get("/trail/:id", (req, res) => {
   console.log("request", req.params.id);
   Trail.findOne({
     where: {
-      id: req.params.id
-    }, attributes: [
+      id: req.params.id,
+    },
+    attributes: [
       "id",
       "user_id",
       "name",
@@ -66,7 +72,7 @@ router.get('/trail/:id', (req, res) => {
       "fav_trail",
       "completed",
       "description",
-      "directions"
+      "directions",
     ],
     include: [
       {
@@ -76,24 +82,22 @@ router.get('/trail/:id', (req, res) => {
       },
     ],
   })
-  .then((dbTrailsData) => {
-   /*  if (!dbTrailsData) {
+    .then((dbTrailsData) => {
+      /*  if (!dbTrailsData) {
       res.status(404).json({ message: 'No post found with this id' });
       return;
     } */
-    const card = dbTrailsData.get({plain : true});
-    console.log(card)
-/*  res.send(card) */
+      const card = dbTrailsData.get({ plain: true });
+      console.log(card);
+      /*  res.send(card) */
 
- res.render('trail', { card, loggedIn: req.session.loggedIn } ); 
-   
-  })
-  .catch((err) => {
-    /* console.log(err); */
-    res.status(500).json(err);
-  })
+      res.render("trail", { card, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      /* console.log(err); */
+      res.status(500).json(err);
+    });
 });
-
 
 // router.get('/login', (req, res) => {
 //   if (req.session.loggedIn) {

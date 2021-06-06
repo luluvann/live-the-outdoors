@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Trail } = require("../../models");
+const { User, Trail, UserTrail } = require("../../models");
 
 // The `/api/trails` endpoint
 
@@ -38,8 +38,9 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   Trail.findOne({
     where: {
-      id: req.params.id
-    }, attributes: [
+      id: req.params.id,
+    },
+    attributes: [
       "id",
       "user_id",
       "name",
